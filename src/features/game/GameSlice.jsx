@@ -17,3 +17,4 @@ export const GameSlice = createSlice({
 export const { setArray } = GameSlice.actions;
 
 export default GameSlice.reducer;
+
