@@ -1,39 +1,409 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.notscroll::-webkit-scrollbar {
+  /* display: none; */
+  /* visibility: hidden; */
+  width: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
+.notscroll::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 100vh;
+}
+
+.notscroll::-webkit-scrollbar-thumb:hover {
+  background-color: white;
+}
+
+.notscroll::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wow::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.wow::-webkit-scrollbar-thumb {
+  background-color: #ec3b3bf1;
+  border-radius: 100vh;
+}
+
+.wow::-webkit-scrollbar-thumb:hover {
+  background-color: #ee1010;
+}
+
+.wow::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background-color: rgba(211, 211, 211, 0.49);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@supports (scrollbar-color: #ec3b3bf1 rgba(211, 211, 211, 0.89)) {
+  .chat-screen {
+    scrollbar-color: #ec3b3bf1 rgba(211, 211, 211, 0.89);
+    scrollbar-width: thin;
   }
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.fullres.fail {
+  display: none;
+  /* display: flex; */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* background-color: #10cf60da; */
+  position: absolute;
+  position: absolute;
+  background-color: #d81e1ee5;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.fullres.fail div,
+.fullres.pass div {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  animation-delay: 0.5s;
+}
+.fullres.fail h1,
+.fullres.pass h1 {
+  color: white;
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+.fullres.fail h3,
+.fullres.pass h3 {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+.fullres.fail i {
+  background-color: #341f97;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-size: 20px;
+}
+.fullres.fail i:hover {
+  cursor: pointer;
+  /* box-shadow: 1px 1px 5px #d63030e0; */
+  /* box-shadow: 1px 1px 2px red; */
+}
+.fullres.pass {
+  /* display: none; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #09db61e7;
+  position: absolute;
+  position: absolute;
+  /* background-color: #d81e1ee5; */
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.fullres.pass i {
+  background-color: #341f97;
+  padding: 1rem;
+  border-radius: 2rem;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-size: 20px;
+}
+.fullres.pass i:hover {
+  cursor: pointer;
+  /* box-shadow: 1px 1px 5px #d63030e0; */
+  /* box-shadow: 1px 1px 2px red; */
+}
+
+.main {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100vw;
+  height: 65vh;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.boxes {
+  height: 100%;
+  width: 30vw;
+  background-color: #afcae6;
+  border-radius: 0.5rem;
+}
+
+.posn {
+  background-color: white;
+  border: 0.7rem solid #3d3da1;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top {
+  border-top: none;
+}
+
+.right {
+  border-right: none;
+}
+
+.left {
+  border-left: none;
+}
+
+.bot {
+  border-bottom: none;
+}
+
+#chat {
+  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "scrn scrn scrn scrn scrn scrn "
+    "txtarea txtarea txtarea txtarea txtarea txtarea";
+}
+
+.botarrow {
+  position: sticky;
+  top: 85%;
+  height: 1px;
+}
+
+#scrollbot {
+  /* color: rgba(92, 166, 235, 0.26); */
+  position: relative;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10vh;
+  color: rgba(245, 245, 245, 0.424);
+}
+
+#scrollbot:hover {
+  color: rgba(245, 245, 245, 1);
+  cursor: pointer;
+}
+
+.txtarea {
+  grid-area: txtarea;
+  /* margin-top: 0rem; */
+}
+
+textarea:focus,
+textarea:hover {
+  box-shadow: 0.5px 0.5px 4px gray;
+  font-weight: 600;
+}
+
+#box {
+  border: 2px solid white;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+textarea {
+  resize: none;
+  letter-spacing: 0.5pt;
+  /* font-family: 'Montserrat', sans-serif; */
+  color: gray;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  background-color: #fff;
+  font-size: 15px;
+  padding: 0.5rem;
+  width: 88%;
+  margin-bottom: -5px;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+#send-chat {
+  margin: 1rem;
+  width: 80px;
+  height: 50px;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  background-color: #ff3838;
+  color: white;
+}
+
+#send-chat:hover {
+  cursor: pointer;
+  box-shadow: 1.5px 1.5px 5px gray;
+}
+
+.my-msg {
+  margin-left: 0.5rem;
+  border-radius: 0.5rem 0rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+  width: 75%;
+  float: right;
+  background-color: #4b7bec;
+  margin-bottom: 1rem;
+  border-bottom: 7px white;
+  overflow: auto;
+}
+
+.my-msg div {
+  overflow: auto;
+  background-color: transparent;
+  margin-top: -2px;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  padding: 0 0.5rem 0.5rem;
+  text-align: left;
+  color: white;
+  width: 90%;
+  font-family: "Epilogue", sans-serif;
+}
+
+.my-msg label {
+  color: white;
+  font-size: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-left: 8px;
+  margin-top: -3px;
+}
+
+.oth-msg {
+  margin-left: 0.1rem;
+  border-radius: 0rem 0.5rem 0.5rem 0.5rem;
+  text-align: justify;
+  box-sizing: border-box;
+  width: 75%;
+  float: left;
+  /* background-color: #20bf6b; */
+  background-color: #0ca55d;
+  margin-bottom: 1rem;
+  border-bottom: 7px white;
+  overflow: auto;
+}
+
+.oth-msg div {
+  overflow: auto;
+  /* background-color: #20bf6b; */
+  background-color: transparent;
+  margin-top: -2px;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  padding: 0 0.5rem 0.5rem;
+  text-align: left;
+  color: white;
+  width: 90%;
+  font-size: 16px;
+  font-family: "Epilogue", sans-serif;
+}
+
+.oth-msg label {
+  color: white;
+  font-size: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-left: 8px;
+  margin-top: -3px;
+}
+
+.chat-screen {
+  /* max-height: 400px; */
+  box-sizing: border-box;
+  text-align: justify;
+  position: relative;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 5px;
+  min-height: 75%;
+  background-color: white;
+  grid-area: scrn;
+  overflow: auto;
+  border: 13px solid white;
+  border-right: 7px solid white;
+}
+
+.my-msg span,
+.oth-msg span {
+  font-family: "Epilogue", sans-serif;
+  color: white;
+  font-size: 8px;
+  float: right;
+  padding-right: 0.6rem;
+  position: relative;
+  bottom: 0.1rem;
+  word-spacing: 2px;
+}
+
+.my-msg div,
+.oth-msg div {
+  font-size: 13.5px;
+  padding-top: 0.3rem;
+  text-align: justify;
+}
+
+.my-msg:hover {
+  background-color: #2b63e6;
+}
+
+.oth-msg:hover {
+  background-color: #009432;
+}
+
+.my-msg:hover,
+.oth-msg:hover {
+  box-shadow: 1px 1px 5px gray;
+}
+
+#box h1 {
+  position: absolute;
+  top: -7%;
+  left: 39%;
+  font-size: 50px;
 }
