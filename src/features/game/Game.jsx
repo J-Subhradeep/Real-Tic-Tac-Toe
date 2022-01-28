@@ -12,6 +12,8 @@ import { Howl, Howler } from "howler";
 import music from "./music.mp3";
 import getDate from "./getDate";
 import BoardElement from "./BoardElement";
+import Result from "./Result"; 
+
 const Game = () => {
 	const [downarrow, setDownarrow] = useState(true);
 
@@ -48,15 +50,8 @@ const Game = () => {
 				</div>
 			</div>
 			<div className="main">
-				<div id="res" className="boxes">
-					<div>
-						<button id="pass" onClick={stop}>
-							win
-						</button>
-						<button id="fail" onclick="addfail()">
-							loss
-						</button>
-					</div>
+				<div id="res" className="boxes result">
+					<Result/>
 				</div>
 				<div id="box" className="boxes">
 					{classesOfBoard.map((val, index) => {
