@@ -7,20 +7,28 @@ import Fab from "@mui/material/Fab";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Howl, Howler } from "howler";
+import music from "./music.mp3";
+import getDate from "./getDate";
 const Game = () => {
   const [downarrow, setDownarrow] = useState(true);
-  function getDate() {
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? "pm" : "am";
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    var strTime = hours + ":" + minutes + " " + ampm;
-    return strTime;
+
+  var sound = new Howl({
+    src: [music],
+  });
+  useEffect(() => {
+    sound.play();
+  }, []);
+
+  function some() {
+    console.log(music);
+    Howler.volume(0.5);
   }
+  function stop() {
+    sound.stop();
+  }
+
   return (
     <>
       <div className="fullres">
@@ -33,7 +41,7 @@ const Game = () => {
       <div className="main">
         <div id="res" className="boxes">
           <div>
-            <button id="pass" onclick="addpass()">
+            <button id="pass" onClick={stop}>
               win
             </button>
             <button id="fail" onclick="addfail()">
@@ -151,6 +159,7 @@ const Game = () => {
               variant="contained"
               color="error"
               style={{ margin: "10px 0" }}
+              onClick={some}
             >
               <SendIcon />
             </Button>
