@@ -159,19 +159,22 @@ textarea::-webkit-scrollbar {
   border: 0.7rem solid #3d3da1;
   height: 100%;
   width: 100%;
-  position: relative;
+  position:relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 .vert {
   border-right: none;
+  border-left: none;
 }
 .horiz {
   border-bottom: none;
 }
 .top {
   border-top: none;
+  border-bottom: none;
 }
 
 .right {
@@ -185,6 +188,13 @@ textarea::-webkit-scrollbar {
 .bot {
   border-bottom: none;
 }
+.boardSigns{
+  position: absolute;
+  top: -11%;
+  left: 21.5%;
+  font-size: 50px;
+}
+
 .hover_on_board_element {
   background-color: rgba(0, 0, 255, 0.253);
 }
@@ -403,12 +413,7 @@ textarea {
   box-shadow: 1px 1px 5px gray;
 }
 
-#box h1 {
-  position: absolute;
-  top: -7%;
-  left: 39%;
-  font-size: 50px;
-}
+
 .result {
   /* background-color: #9AECDB; */
   box-shadow: 3px 3px 4px#022b538f;
