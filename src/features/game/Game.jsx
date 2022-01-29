@@ -12,10 +12,16 @@ import { Howl, Howler } from "howler";
 import music from "./music.mp3";
 import getDate from "./getDate";
 import BoardElement from "./BoardElement";
-import Result from "./Result"; 
-
+import Result from "./Result";
+import { useNavigate } from "react-router-dom";
 const Game = () => {
 	const [downarrow, setDownarrow] = useState(true);
+	const navigate = useNavigate();
+	useEffect(() => {
+		if (!localStorage.getItem("name") || !localStorage.getItem("room")) {
+			navigate("/login");
+		}
+	}, []);
 
 	var sound = new Howl({
 		src: [music],
@@ -34,24 +40,20 @@ const Game = () => {
 	var classesOfBoard = [
 		"posn top left",
 		"posn top vert",
-		"posn top right ",
+		"posn top right",
 		"posn left horiz",
-		"posn vert horiz",
+		"middle posn vert horiz",
 		"posn right horiz",
-		"posn bot left ",
-		"posn bot vert",
+		"posn bot left",
+		"vert posn bot downvert",
 		"posn bot right",
 	];
 	return (
 		<>
-			<div className="fullres">
-				<div>
-					<i onclick="location.reload()"></i>
-				</div>
-			</div>
+			<div className="fullres"></div>
 			<div className="main">
 				<div id="res" className="boxes result">
-					<Result/>
+					<Result />
 				</div>
 				<div id="box" className="boxes">
 					{classesOfBoard.map((val, index) => {
@@ -94,7 +96,7 @@ const Game = () => {
 								let label = val.msg_sym == "X" ? "You" : "He";
 								return (
 									<>
-										<div className={clas}>
+										<div className={clas} key={index}>
 											<label>{label}</label>
 											<div>{val.msg}</div>
 											<span>{getDate()}</span>
