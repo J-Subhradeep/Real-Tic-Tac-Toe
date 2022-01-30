@@ -14,6 +14,7 @@ import getDate from "./getDate";
 import BoardElement from "./BoardElement";
 import Result from "./Result";
 import { useNavigate } from "react-router-dom";
+import LowerResult from "./Lower_Result";
 const Game = () => {
 	const [downarrow, setDownarrow] = useState(true);
 	const navigate = useNavigate();
@@ -143,6 +144,7 @@ const Game = () => {
 						</Button>
 					</div>
 				</div>
+				<LowerResult />
 			</div>
 		</>
 	);
