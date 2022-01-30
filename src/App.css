@@ -164,6 +164,7 @@ textarea::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  background: transparent;
 }
 .vert {
   border-right: none;
@@ -464,4 +465,67 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+
+
+
+/* ----------------------responsive-------------------------- */
+
+@media(max-width: 950px)
+{
+  .volumeBar{
+    width: 90%;
+    padding-left: 10px;
+  }
+  .my-msg div,.oth-msg div{
+    font-size: 10px;
+    width: 90%;
+  }
+  .boardSigns
+  {
+    top: -7%;
+    left: 15%;
+  }
+  .txtarea textarea{
+    font-size: .8rem;
+  }
+}
+@media(max-width: 800px)
+{
+  .boardSigns
+  {
+    top: -7%;
+    left: 7%;
+  }
+  .my-msg div,.oth-msg div{
+    font-size: 10px;
+    width: 80%;
+  }
+  .player_logo{
+    font-size: 10px;
+  }
+}
+@media (max-width:700px)
+{
+  .boardSigns
+  {
+    top: -7%;
+    left: 19.5%;
+  }
+  .txtarea{
+    width: 90%;
+    padding-left: 10px;    
+  } 
+  .result{
+    display: none;
+  }
+  #chat,#box{
+    width: 45%;
+  }
+  .res_low{
+    height: 100px;
+  }
+  
 }
