@@ -20,7 +20,7 @@ export default function (props) {
   useEffect(() => {
     return () => {
       window.addEventListener("beforeunload", function (e) {
-        localStorage.clear();
+        // localStorage.clear();
       });
     };
   });
