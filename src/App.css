@@ -211,6 +211,7 @@ textarea::-webkit-scrollbar {
 #chat {
 	text-align: center;
 	display: grid;
+	box-shadow: 0px 2px 5px 2px rgba(35, 35, 70, 0.8);
 	grid-template-areas:
 		"scrn scrn scrn scrn scrn scrn "
 		"scrn scrn scrn scrn scrn scrn "
@@ -473,14 +474,58 @@ textarea {
 	flex-direction: column;
 	align-items: center;
 }
+.low_div{
+	background-color: #fccd13ee;
+	padding: 10px 10px;
+	margin-top: 10px;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	text-shadow: 0px 3px 2px rgba(35, 35, 70, 0.6);
+	box-shadow: 0px 5px 7px 2px rgba(35, 35, 70, 0.6);
+	font-family: 'Inter';
+}
+.player12{
+	display: flex;
+	flex-direction: column;
+	width: 48%;
+}
+.volumeBar_low_div{
+	/* background-color: #2b63e6; */
+	margin: 2px 5px 2px 5px ;
+}
+.room_low_div,.roomcode_low_div{
+	padding: 2px 2px;
+	font-size: 1.2rem;
+}
+.rooms,.meVsOpponent{
+	display: flex;
+	justify-content: center;
+	font-size: 1.2rem;
+	margin: -18px 0px;
+}
+.room_low_div{
+	color:#130f40;
+	font-weight: 800;
+}
+.roomcode_low_div{
+	color:#002b4d;
+	font-weight: 700;
+}
+.volumeBar_low_div{
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
+}
+.Vs{
+	padding: 0px 8px;
+}
+
 @media (max-width: 1086px) {
 	.boardSigns {
 		top: -7%;
 		left: 19.5%;
-	}
-	.txtarea {
-		width: 90%;
-		padding-left: 10px;
 	}
 	.result {
 		display: none;
@@ -510,4 +555,11 @@ textarea {
 	#box {
 		width: 48%;
 	}
+
 }
+/* @media screen and(max-width: 580px){
+	#chat,
+	#box{
+		width: 90%
+	}
+} */
