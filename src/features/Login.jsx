@@ -2,6 +2,7 @@ import React from "react";
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Login = () => {
 	const navigate = useNavigate();
 	const [state, setState] = useState({ room: "", client: "" });
@@ -18,7 +19,16 @@ const Login = () => {
 	function login() {
 		localStorage.setItem("room", state.room);
 		localStorage.setItem("name", state.client);
-		navigate("/");
+		axios
+			.post("http://127.0.0.1:8000/", { group_name: state.room })
+			.then((a) => {
+				console.log(a.data);
+				if (!a.data.both) {
+					navigate("/");
+				} else {
+					alert("The room is full");
+				}
+			});
 	}
 	return (
 		<div
