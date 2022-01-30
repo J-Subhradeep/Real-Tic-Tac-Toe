@@ -1,13 +1,17 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setArray } from "./GameSlice";
-import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
-import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
+import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
+import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
 const BoardElement = (props) => {
 	console.log(props.id);
 	const array = useSelector((state) => state.boardelements.elements);
-	const [classname, setClassname] = useState(props.className);
+	const [classname, setClassname] = useState(props.cname);
+	useEffect(() => {
+		setClassname(props.cname);
+	}, []);
+
 	const dispatch = useDispatch();
 	return (
 		<>
@@ -25,13 +29,26 @@ const BoardElement = (props) => {
 					setClassname(string.join(" "));
 				}}
 			>
-				<h1 className="boardSigns">{array[props.id]=="X"?<ClearOutlinedIcon style={{
-					fontSize:"4rem"
-				}}/>:""}{array[props.id]=="O"?<CircleOutlinedIcon
-				style={{
-					fontSize:"4rem"
-				}}/>:""}</h1>
-				
+				<h1 className="boardSigns">
+					{array[props.id] == "X" ? (
+						<ClearOutlinedIcon
+							style={{
+								fontSize: "4rem",
+							}}
+						/>
+					) : (
+						""
+					)}
+					{array[props.id] == "O" ? (
+						<CircleOutlinedIcon
+							style={{
+								fontSize: "4rem",
+							}}
+						/>
+					) : (
+						""
+					)}
+				</h1>
 			</div>
 		</>
 	);

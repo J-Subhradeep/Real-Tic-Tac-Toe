@@ -57,7 +57,7 @@ const Game = () => {
 				</div>
 				<div id="box" className="boxes">
 					{classesOfBoard.map((val, index) => {
-						return <BoardElement className={val} key={index} id={index} />;
+						return <BoardElement cname={val} key={index} id={index} />;
 					})}
 				</div>
 				<div id="chat" className="boxes">

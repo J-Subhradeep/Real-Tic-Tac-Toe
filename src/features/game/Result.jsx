@@ -5,8 +5,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Volume from "./Volume";
 const Result = () => {
 	var username = localStorage.getItem("name");
+	var room = localStorage.getItem("room");
 	const [socketUrl, setSocketUrl] = useState(
-		"ws://127.0.0.1:8000/ws/seconduser/group/" + username + "/"
+		"ws://127.0.0.1:8000/ws/seconduser/" + room + "/" + username + "/"
 	);
 	const [opponent, setOpponent] = useState("");
 	const [messageHistory, setMessageHistory] = useState([]);
@@ -55,7 +56,7 @@ const Result = () => {
 						<Fab>
 							<AccountCircleIcon fontSize="large" />
 						</Fab>
-						<p>{opponent}</p>
+						<p>{opponent.toLocaleUpperCase()}</p>
 					</div>
 				</div>
 			</div>
