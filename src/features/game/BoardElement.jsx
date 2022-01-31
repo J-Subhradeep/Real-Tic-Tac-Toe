@@ -35,7 +35,16 @@ export default function (props) {
 		<>
 			<div
 				className={classname}
-				onClick={() => dispatch(setArray({ id: props.id, value: "X" }))}
+				onClick={() =>
+					dispatch(
+						setArray({
+							id: props.id,
+							value: localStorage.getItem("sym")
+								? localStorage.getItem("sym")
+								: "X",
+						})
+					)
+				}
 				onMouseEnter={() => {
 					if (!classname.includes("hover_on_board_element")) {
 						setClassname(classname + " hover_on_board_element");

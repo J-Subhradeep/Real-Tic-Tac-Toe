@@ -15,6 +15,7 @@ import BoardElement from "./BoardElement";
 import Result from "./Result";
 import { useNavigate } from "react-router-dom";
 import LowerResult from "./Lower_Result";
+import Chat from "./Chat";
 const Game = () => {
 	const [downarrow, setDownarrow] = useState(true);
 	const navigate = useNavigate();
@@ -61,89 +62,7 @@ const Game = () => {
 						return <BoardElement cname={val} key={index} id={index} />;
 					})}
 				</div>
-				<div id="chat" className="boxes">
-					<div
-						className="chat-screen notscroll"
-						onScroll={() => {
-							const scrn = document.querySelector(".chat-screen");
-							const scrollbtn = document.querySelector(".botarrow");
-							scrn.classList.add("wow");
-							scrn.classList.remove("notscroll");
-
-							if (
-								scrn.clientHeight + scrn.scrollTop >=
-								scrn.scrollHeight - 10
-							) {
-								console.log("scrolled");
-								setDownarrow(false);
-							} else {
-								setDownarrow(true);
-							}
-
-							setTimeout(() => {
-								scrn.classList.remove("wow");
-								scrn.classList.add("notscroll");
-							}, 5000);
-						}}
-					>
-						<div className="mySide">
-							<div className="my-msg">
-								<label>You</label>
-								<div>WEll good</div>
-								<span>{getDate()}</span>
-							</div>
-							{messages.map((val, index) => {
-								let clas = val.msg_sym == "X" ? "my-msg" : "oth-msg";
-								let label = val.msg_sym == "X" ? "You" : "He";
-								return (
-									<>
-										<div className={clas} key={index}>
-											<label>{label}</label>
-											<div>{val.msg}</div>
-											<span>{getDate()}</span>
-										</div>
-									</>
-								);
-							})}
-						</div>
-						{downarrow ? (
-							<>
-								<div
-									className="botarrow"
-									bgcolor="white"
-									onClick={() => {
-										const scrn = document.querySelector(".chat-screen");
-										scrn.scrollTo({
-											top: scrn.scrollHeight,
-											behavior: "smooth",
-										});
-									}}
-								>
-									<ArrowDropDownCircleIcon id="scrollbot" />
-								</div>
-							</>
-						) : (
-							<></>
-						)}
-					</div>
-					<div className="txtarea">
-						<textarea
-							name="message"
-							placeholder="Enter message here"
-							id="msg-box"
-							cols="30"
-							rows="2"
-						></textarea>
-						<Button
-							variant="contained"
-							color="error"
-							style={{ margin: "10px 0" }}
-							onClick={some}
-						>
-							<SendIcon />
-						</Button>
-					</div>
-				</div>
+				<Chat />
 				<LowerResult />
 			</div>
 		</>
