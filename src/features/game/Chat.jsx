@@ -1,0 +1,126 @@
+import React, { useState, useEffect } from "react";
+// import message from "./Messages";
+import getDate from "./getDate";
+import useWebSocket, { ReadyState } from "react-use-websocket";
+import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
+import SendIcon from "@mui/icons-material/Send";
+import Button from "@mui/material/Button";
+const Chat = (props) => {
+	var room = localStorage.getItem("room");
+	var symbols = localStorage.getItem("sym");
+	const [downarrow, setDownarrow] = useState(true);
+
+	const [socketUrl, setSocketUrl] = useState(
+		"ws://127.0.0.1:8000/ws/chat/" + room + "_chat" + "/" + symbols + "/"
+	);
+	const [messageHistory, setMessageHistory] = useState([]);
+	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+	const [message, setMessage] = useState([]);
+	useEffect(() => {
+		if (lastMessage !== null) {
+			setMessageHistory((prev) => prev.concat(lastMessage));
+			// setMessage([...JSON.parse(lastMessage.data)]);
+			// JSON.parse(lastMessage.data);
+			setMessage([...message, JSON.parse(lastMessage.data)]);
+		}
+	}, [lastMessage, setMessageHistory]);
+
+	const [value, setValue] = useState("");
+	return (
+		<>
+			<div id="chat" className="boxes">
+				<div
+					className="chat-screen notscroll"
+					onScroll={() => {
+						const scrn = document.querySelector(".chat-screen");
+						const scrollbtn = document.querySelector(".botarrow");
+						scrn.classList.add("wow");
+						scrn.classList.remove("notscroll");
+
+						if (scrn.clientHeight + scrn.scrollTop >= scrn.scrollHeight - 10) {
+							console.log("scrolled");
+							setDownarrow(false);
+						} else {
+							setDownarrow(true);
+						}
+
+						setTimeout(() => {
+							scrn.classList.remove("wow");
+							scrn.classList.add("notscroll");
+						}, 5000);
+					}}
+				>
+					<div className="mySide">
+						{message.map((val, index) => {
+							console.log(val);
+							let clas =
+								val.msg_sym == localStorage.getItem("sym")
+									? "my-msg"
+									: "oth-msg";
+							let label =
+								val.msg_sym == localStorage.getItem("sym") ? "You" : "He";
+							return (
+								<>
+									<div className={clas} key={index}>
+										<label>{label}</label>
+										<div>{val.msg}</div>
+										<span>{getDate()}</span>
+									</div>
+								</>
+							);
+						})}
+					</div>
+					{downarrow ? (
+						<>
+							<div
+								className="botarrow"
+								bgcolor="white"
+								onClick={() => {
+									const scrn = document.querySelector(".chat-screen");
+									scrn.scrollTo({
+										top: scrn.scrollHeight,
+										behavior: "smooth",
+									});
+								}}
+							>
+								<ArrowDropDownCircleIcon id="scrollbot" />
+							</div>
+						</>
+					) : (
+						<></>
+					)}
+				</div>
+				<div className="txtarea">
+					<textarea
+						name="message"
+						placeholder="Enter message here"
+						id="msg-box"
+						cols="30"
+						rows="2"
+						value={value}
+						onChange={(e) => {
+							setValue(e.target.value);
+						}}
+					></textarea>
+					<Button
+						variant="contained"
+						color="error"
+						style={{ margin: "10px 0" }}
+						onClick={() => {
+							sendMessage(
+								JSON.stringify({
+									msg: value,
+									msg_sym: localStorage.getItem("sym"),
+								})
+							);
+						}}
+					>
+						<SendIcon />
+					</Button>
+				</div>
+			</div>
+		</>
+	);
+};
+
+export default Chat;
