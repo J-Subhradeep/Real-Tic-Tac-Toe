@@ -4,6 +4,9 @@ import Fab from "@mui/material/Fab";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Volume from "./Volume";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { useSelector, useDispatch } from "react-redux";
+import { setOpponent } from "./ResultSlice";
+
 const Result = () => {
   var username = localStorage.getItem("name");
   var room = localStorage.getItem("room");
@@ -12,7 +15,9 @@ const Result = () => {
   );
 
   const [icon, setIcon] = useState(false);
-  const [opponent, setOpponent] = useState("");
+  const oppo = useSelector((state) => state.opponent.opponent);
+  // const [opponent, setOpponent] = useState(oppo);
+  const dispatch = useDispatch();
   const [messageHistory, setMessageHistory] = useState([]);
   const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
   useEffect(() => {
@@ -20,16 +25,19 @@ const Result = () => {
       setMessageHistory((prev) => prev.concat(lastMessage));
       var bothClient = JSON.parse(lastMessage.data);
       if (localStorage.getItem("name") === bothClient.first_client) {
-        setOpponent(bothClient.second_client);
+        // setOpponent(bothClient.second_client);
+        dispatch(setOpponent(bothClient.second_client));
         setIcon(true);
         console.log(bothClient);
       }
       if (localStorage.getItem("name") === bothClient.second_client) {
         setOpponent(bothClient.first_client);
+        dispatch(setOpponent(bothClient.first_client));
         setIcon(true);
       }
       if (bothClient.second_client == false) {
         setOpponent("Opps !");
+        dispatch(setOpponent("Oops !"));
         setIcon(false);
       }
     }
@@ -69,7 +77,7 @@ const Result = () => {
                 <HelpOutlineIcon fontSize="large" color="error" />
               )}
             </Fab>
-            <p>{opponent.toUpperCase()}</p>
+            <p>{oppo.toUpperCase()}</p>
           </div>
         </div>
       </div>
