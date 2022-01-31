@@ -31,7 +31,7 @@ export default function InputSlider() {
   };
 
   return (
-    <Box sx={{ width: 300 }}>
+    <Box sx={{ width: 150}}>
       <Grid container spacing={2} alignItems="center">
         <Grid item>
           <VolumeUp/>
