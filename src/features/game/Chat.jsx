@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import message from "./Messages";
 import getDate from "./getDate";
+import { useSelector, useDispatch } from "react-redux";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import SendIcon from "@mui/icons-material/Send";
@@ -24,7 +25,7 @@ const Chat = (props) => {
 			setMessage([...message, JSON.parse(lastMessage.data)]);
 		}
 	}, [lastMessage, setMessageHistory]);
-
+	const oppo = useSelector((state) => state.opponent.opponent);
 	const [value, setValue] = useState("");
 	return (
 		<>
@@ -62,33 +63,18 @@ const Chat = (props) => {
 							return (
 								<>
 									<div className={clas} key={index}>
-										<label>{label}</label>
+										<label>
+											{val.label === localStorage.getItem("name")
+												? "You"
+												: val.label}
+										</label>
 										<div>{val.msg}</div>
-										<span>{getDate()}</span>
+										<span>{val.time}</span>
 									</div>
 								</>
 							);
 						})}
 					</div>
-					{/* {downarrow ? (
-						<>
-							<div
-								className="botarrow"
-								bgcolor="white"
-								onClick={() => {
-									const scrn = document.querySelector(".chat-screen");
-									scrn.scrollTo({
-										top: scrn.scrollHeight,
-										behavior: "smooth",
-									});
-								}}
-							>
-								<ArrowDropDownCircleIcon id="scrollbot" />
-							</div>
-						</>
-					) : (
-						<></>
-					)} */}
 				</div>
 				<div className="txtarea">
 					<textarea
@@ -111,6 +97,8 @@ const Chat = (props) => {
 								JSON.stringify({
 									msg: value,
 									msg_sym: localStorage.getItem("sym"),
+									label: localStorage.getItem("name"),
+									time: getDate(),
 								})
 							);
 						}}
