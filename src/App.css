@@ -167,6 +167,12 @@ textarea::-webkit-scrollbar {
 	justify-content: center;
 	align-items: center;
 	box-sizing: border-box;
+	text-align: center;
+}
+.boardElementsDiv{
+	width: 100%;
+	height: 100%;
+	position: relative;
 }
 .vert {
 	border-right: none;
@@ -202,9 +208,12 @@ textarea::-webkit-scrollbar {
 
 .boardSigns {
 	position: absolute;
-	top: -11%;
-	left: 21.5%;
+	/* top: -11%;
+	left: 21.5%; */
 	font-size: 50px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
 }
 
 .hover_on_board_element {
@@ -529,10 +538,6 @@ textarea {
 }
 
 @media (max-width: 1086px) {
-	.boardSigns {
-		top: -7%;
-		left: 19.5%;
-	}
 	.result {
 		display: none;
 	}
@@ -570,10 +575,6 @@ textarea {
 
 }
 @media screen and (max-width: 650px){
-	.boardSigns {
-		top: -7%;
-		left: 16.5%;
-	}
 	.low_div{
 		width: 90%;
 		padding: 10px 20px;
@@ -595,10 +596,6 @@ textarea {
 	#chat{
 		margin: 20px 0px 52px 0px;
 	}
-	.boardSigns {
-		top: -3%;
-		left: 23.5%;
-	}
 	.room_low_div,.roomcode_low_div,.meVsOpponent{
 		font-size: 1rem;
 	}
@@ -612,15 +609,8 @@ textarea {
 	{
 		margin: 20px 0px 70px 0px;
 	}
-	.boardSigns{
-		top: -2%;
-	}
 }
 @media screen and (max-width:400px){
-	.boardSigns{
-		left: 18%;
-		top: -3%;
-	}
 	.low_div{
 		width: 200px;
 		flex-direction: column;
@@ -632,10 +622,6 @@ textarea {
 	
 } */
 @media screen and (min-height: 800px) {
-	.boardSigns{
-		top:-4%;
-		left: 21%;
-	}
 	#box{
 		height: 60%;
 		margin-top: 150px;
