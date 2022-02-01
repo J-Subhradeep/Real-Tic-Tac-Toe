@@ -11,10 +11,12 @@ export const GameSlice = createSlice({
 		setArray: (state, action) => {
 			state.elements[action.payload.id] = action.payload.value;
 		},
+		setFullArray: (state, array) => {
+			state.elements = array.payload;
+		},
 	},
 });
 
-export const { setArray } = GameSlice.actions;
+export const { setArray, setFullArray } = GameSlice.actions;
 
 export default GameSlice.reducer;
-

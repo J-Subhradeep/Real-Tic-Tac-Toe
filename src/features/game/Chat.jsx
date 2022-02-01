@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 const Chat = (props) => {
 	var room = localStorage.getItem("room");
 	var symbols = localStorage.getItem("sym");
-	const [downarrow, setDownarrow] = useState(true);
+	const [downarrow, setDownarrow] = useState(false);
 
 	const [socketUrl, setSocketUrl] = useState(
 		"ws://127.0.0.1:8000/ws/chat/" + room + "_chat" + "/" + symbols + "/"
@@ -70,7 +70,7 @@ const Chat = (props) => {
 							);
 						})}
 					</div>
-					{downarrow ? (
+					{/* {downarrow ? (
 						<>
 							<div
 								className="botarrow"
@@ -88,7 +88,7 @@ const Chat = (props) => {
 						</>
 					) : (
 						<></>
-					)}
+					)} */}
 				</div>
 				<div className="txtarea">
 					<textarea
