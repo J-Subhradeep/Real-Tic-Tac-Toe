@@ -47,19 +47,20 @@ const Login = () => {
 		//   });
 		// bothUser({ group_name: state.room });
 
-		makeRequest({ group_name: state.room }).then((a) => {
-			console.log(a);
-			if (a.is_first) {
-				localStorage.setItem("sym", "X");
-			} else {
-				localStorage.setItem("sym", "O");
-			}
-			if (!a.data.both) {
-				navigate("/");
-			} else {
-				alert("The room is full");
-			}
-		});
+		// makeRequest({ group_name: state.room }).then((a) => {
+		// 	console.log(a);
+		// 	if (a.is_first) {
+		// 		localStorage.setItem("sym", "X");
+		// 	} else {
+		// 		localStorage.setItem("sym", "O");
+		// 	}
+		// 	if (!a.data.both) {
+		// 		navigate("/");
+		// 	} else {
+		// 		alert("The room is full");
+		// 	}
+		// });
+		navigate("/");
 	}
 	return (
 		<div
