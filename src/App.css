@@ -213,6 +213,7 @@ textarea::-webkit-scrollbar {
 #chat {
 	text-align: center;
 	display: grid;
+	/* height: 650px; */
 	box-shadow: 0px 2px 5px 2px rgba(35, 35, 70, 0.8);
 	grid-template-areas:
 		"scrn scrn scrn scrn scrn scrn "
@@ -379,14 +380,14 @@ textarea {
 }
 
 .chat-screen {
-	/* max-height: 400px; */
+	max-height: 500px;
 	box-sizing: border-box;
 	text-align: justify;
 	position: relative;
 	border-radius: 0.5rem;
 	margin: 1rem;
 	padding: 5px;
-	min-height: 75%;
+	/* min-height: 75%; */
 	background-color: white;
 	grid-area: scrn;
 	overflow: auto;
@@ -538,6 +539,9 @@ textarea {
 	.low_div{
 		display: flex;
 	}
+	#chat{
+		max-height: 550px;
+	}
 	#chat,
 	#box {
 		width: 36%;
@@ -582,7 +586,7 @@ textarea {
 	}
 	#chat,
 	#box {
-		width: 90%;
+		width: 80%;
 	}
 	#box
 	{
@@ -602,4 +606,42 @@ textarea {
 		padding: 2px 2px;
 	}
 
+}
+@media screen and (max-width:500px){
+	#box
+	{
+		margin: 20px 0px 70px 0px;
+	}
+	.boardSigns{
+		top: -2%;
+	}
+}
+@media screen and (max-width:400px){
+	.boardSigns{
+		left: 18%;
+		top: -3%;
+	}
+	.low_div{
+		width: 200px;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 5px;
+	}
+}
+/* @media screen and (max-width:) {
+	
+} */
+@media screen and (min-height: 800px) {
+	.boardSigns{
+		top:-4%;
+		left: 21%;
+	}
+	#box{
+		height: 60%;
+		margin-top: 150px;
+		margin-bottom: 350px;
+	}
+	#chat{
+		margin-bottom: 50px;
+	}
 }
