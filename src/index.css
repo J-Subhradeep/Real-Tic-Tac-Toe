@@ -1,142 +1,154 @@
 .fullres.fail {
-  display: none;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  position: absolute;
-  position: absolute;
-  background-color: #d81e1ee5;
-  transform: scale(0);
-  animation: tofullfail 1s linear forwards;
+	display: none;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	position: absolute;
+	position: absolute;
+	background-color: #d81e1ee5;
+	transform: scale(0);
+	animation: tofullfail 1s linear forwards;
 }
 @keyframes tofullfail {
-  33% {
-    transform: scale(0.33);
-    background-color: #cf2222a9;
-  }
-  66% {
-    transform: scale(0.66);
-    background-color: #d81e1ee5;
-  }
-  100% {
-    transform: scale(1);
-    background-color: #e41212;
-  }
+	33% {
+		transform: scale(0.33);
+		background-color: #cf2222a9;
+	}
+	66% {
+		transform: scale(0.66);
+		background-color: #d81e1ee5;
+	}
+	100% {
+		transform: scale(1);
+		background-color: #e41212;
+	}
 }
 
 .fullres.fail div,
 .fullres.pass div {
-  position: absolute;
-  top: 43%;
-  left: 50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 43%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
 }
 
 .fullres.fail h1,
 .fullres.pass h1 {
-  color: white;
-  text-align: center;
-  font-size: 5rem;
-  margin-bottom: 1rem;
-  transform: scale(0);
-  animation: greetone 3s cubic-bezier(0, 0, 0.22, 1.16) forwards;
+	color: white;
+	text-align: center;
+	font-size: 5rem;
+	margin-bottom: 1rem;
+	transform: scale(0);
+	animation: greetone 3s cubic-bezier(0, 0, 0.22, 1.16) forwards;
 }
 
 @keyframes greetone {
-  80% {
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1.5);
-  }
+	80% {
+		transform: scale(2);
+	}
+	100% {
+		transform: scale(1.5);
+	}
 }
 
 .fullres.fail h3,
 .fullres.pass h3 {
-  color: white;
-  text-align: center;
-  font-size: 2rem;
-  transform: scale(0);
-  animation: greettwo 3s linear forwards;
+	color: white;
+	text-align: center;
+	font-size: 2rem;
+	transform: scale(0);
+	animation: greettwo 3s linear forwards;
 }
 
 @keyframes greettwo {
-  80% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
+	80% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 .fullres.pass {
-  /* display: none; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  background-color: #09db61e7;
-  position: absolute;
-  transform: scale(0);
-  animation: tofullpass 1s linear forwards;
+	/* display: none; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-color: #09db61e7;
+	position: absolute;
+	transform: scale(0);
+	animation: tofullpass 1s linear forwards;
 }
 
 @keyframes tofullpass {
-  33% {
-    transform: scale(0.33);
-    background-color: #09db61b4;
-  }
-  66% {
-    transform: scale(0.66);
-    background-color: #07b44fe7;
-  }
-  100% {
-    transform: scale(1);
-    background-color: #0ebb56;
-  }
+	33% {
+		transform: scale(0.33);
+		background-color: #09db61b4;
+	}
+	66% {
+		transform: scale(0.66);
+		background-color: #07b44fe7;
+	}
+	100% {
+		transform: scale(1);
+		background-color: #0ebb56;
+	}
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 body {
-  overflow: hidden;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.959);
+
+  
+	background-color: rgba(0, 0, 0, 0.959);
 }
 .bg_animation {
-  position: absolute;
-  height: 100vh;
-  z-index: 10;
+	background-image: url(./giphy.gif);
+	position: absolute;
+	height: 150vh;
+	width: 100vw;
+	z-index: 10;
 }
 .bg {
-  position: absolute;
-  pointer-events: none;
-  font-family: "Merriweather Sans", sans-serif;
-  color: rgb(0, 0, 0);
-  animation: animate 5s linear infinite;
-  font-size: 6rem;
+	position: absolute;
+	pointer-events: none;
+	font-family: "Merriweather Sans", sans-serif;
+	color: rgb(0, 0, 0);
+	animation: animate 5s linear infinite;
+	font-size: 6rem;
 }
 @keyframes animate {
-  0% {
-    opacity: 0;
-    transform: scale(0) translateY(0) rotate(0deg);
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1) translateY(-500%) rotate(360deg);
-  }
+	0% {
+		opacity: 0;
+		transform: scale(0) translateY(0) rotate(0deg);
+	}
+	10% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(1) translateY(-500%) rotate(360deg);
+	}
+} */
+.backgroundEffect {
+	height: 110vh;
+	width: 100vw;
+	position: absolute;
+	/* background: #000; */
+	background-image: url(./giphy.gif);
+	background-repeat: repeat;
+	background-size: contain;
+	/* opacity: 0.6; */
 }
