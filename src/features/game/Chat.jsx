@@ -48,7 +48,7 @@ const Chat = (props) => {
 						setTimeout(() => {
 							scrn.classList.remove("wow");
 							scrn.classList.add("notscroll");
-						}, 5000);
+						}, 3000);
 					}}
 				>
 					<div className="mySide">

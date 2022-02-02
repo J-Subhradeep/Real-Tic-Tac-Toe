@@ -54,7 +54,7 @@ const Login = () => {
 			} else {
 				localStorage.setItem("sym", "O");
 			}
-			if (!a.data.both) {
+			if (!a.both) {
 				navigate("/");
 			} else {
 				alert("The room is full");
