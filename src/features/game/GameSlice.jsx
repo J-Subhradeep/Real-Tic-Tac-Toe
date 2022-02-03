@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	elements: [".", ".", ".", ".", ".", ".", ".", ".", "."],
+	elements: ["", "", "", "", "", "", "", "", ""],
 };
 
 export const GameSlice = createSlice({
