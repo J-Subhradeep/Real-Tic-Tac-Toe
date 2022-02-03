@@ -9,7 +9,7 @@ const Lower_Result = () => {
 			<div className="player12">
 				<div className="rooms">
 					<p className="room_low_div">Room: </p>
-					<p className="roomcode_low_div">adi8u39</p>
+					<p className="roomcode_low_div">{localStorage.getItem("room")}</p>
 				</div>
 				<div className="meVsOpponent">
 					{oppo !== "Disconnected" ? (
