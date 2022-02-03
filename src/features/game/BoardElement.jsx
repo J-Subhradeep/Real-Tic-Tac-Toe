@@ -27,6 +27,7 @@ export default function (props) {
 	});
 	const array = useSelector((state) => state.boardelements.elements);
 	const disabled = useSelector((state) => state.ability.disabled);
+	const oppo = useSelector((state) => state.opponent.opponent);
 	const [classname, setClassname] = useState(classesOfBoard[props.id]);
 	useEffect(() => {
 		setClassname(classesOfBoard[props.id]);
@@ -39,6 +40,9 @@ export default function (props) {
 				className={classname}
 				onClick={() => {
 					if (!disabled) {
+						if (!oppo) {
+							return;
+						}
 						if (array[props.id] == "X" || array[props.id] == "O") {
 							return;
 						}

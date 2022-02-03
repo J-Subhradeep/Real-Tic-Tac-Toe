@@ -35,6 +35,7 @@ const Game = () => {
 		title: "",
 		msg: "",
 	});
+	const [win, setWin] = useState(true);
 	const [socketUrl, setSocketUrl] = useState(
 		"ws://127.0.0.1:8000/ws/board/" + room + "_board" + "/"
 	);
@@ -60,6 +61,7 @@ const Game = () => {
 						msg: "Congratulations!🤩",
 					};
 				});
+				setWin(false);
 			}
 			if (check(arr)[0] && check(arr)[1] != localStorage.getItem("sym")) {
 				console.log("loss");
@@ -71,6 +73,18 @@ const Game = () => {
 						msg: "Better luck next time🙂",
 					};
 				});
+				setWin(false);
+			}
+			if (check(arr)[2]) {
+				setResult((prev) => {
+					return {
+						...prev,
+						classs: "fullres drawmatch",
+						title: "Match Draw !😐",
+						msg: "Better luck next time😶",
+					};
+				});
+				setWin(false);
 			}
 		}
 	}, [lastMessage, setMessageHistory]);
@@ -111,18 +125,58 @@ const Game = () => {
 					<span className="result_msg">{result.msg}</span>
 				</div>
 			</div>
-			<div className="main">
-				<div id="res" className="boxes result">
-					<Result />
-				</div>
-				<div id="box" className="boxes">
-					{classesOfBoard.map((val, index) => {
-						return <BoardElement cname={val} key={index} id={index} />;
-					})}
-				</div>
-				<Chat />
-				<LowerResult />
-			</div>
+			{win ? (
+				<>
+					<div class="total_bg">
+						<div className="main">
+							<div id="res" className="boxes result">
+								<Result />
+							</div>
+							<div id="box" className="boxes">
+								{classesOfBoard.map((val, index) => {
+									return <BoardElement cname={val} key={index} id={index} />;
+								})}
+							</div>
+							<Chat />
+							<LowerResult />
+						</div>
+						<div class="bg_animation">
+							<div class="glowing">
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+							</div>
+							<div class="glowing">
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+							</div>
+							<div class="glowing">
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+								<span class="glow1"></span>
+							</div>
+						</div>
+					</div>
+				</>
+			) : (
+				<></>
+			)}
 		</>
 	);
 };

@@ -60,7 +60,7 @@ const Result = () => {
 			</div>
 			<div className="bothPlayer" style={{ backgroundColor: "primary" }}>
 				<p className="room">Room</p>
-				<p className="roomcode">adi8u39</p>
+				<p className="roomcode">{localStorage.getItem("room")}</p>
 				<div className="players">
 					<div className="player1">
 						<Fab>

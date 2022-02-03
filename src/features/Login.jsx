@@ -35,17 +35,6 @@ const Login = () => {
 	function login() {
 		localStorage.setItem("room", state.room);
 		localStorage.setItem("name", state.client);
-		// axios
-		//   .post(`http://127.0.0.1:8000/`, { group_name: state.room })
-		//   .then((a) => {
-		//     console.log(a.data);
-		//     if (!a.data.both) {
-		//       navigate("/");
-		//     } else {
-		//       alert("The room is full");
-		//     }
-		//   });
-		// bothUser({ group_name: state.room });
 
 		makeRequest({ group_name: state.room }).then((a) => {
 			console.log(a);
@@ -53,6 +42,7 @@ const Login = () => {
 				localStorage.setItem("sym", "X");
 			} else {
 				localStorage.setItem("sym", "O");
+				
 			}
 			if (!a.both) {
 				navigate("/");
@@ -60,8 +50,19 @@ const Login = () => {
 				alert("The room is full");
 			}
 		});
-		// navigate("/");
 	}
+	const generateRoom = async () => {
+		const result = await $.ajax({
+			url: "http://127.0.0.1:8000/unique/",
+			method: "GET",
+		});
+
+		setState((prev) => {
+			return { ...prev, room: result.room };
+		});
+		navigator.clipboard.writeText(result.room);
+		// console.log(result.room);
+	};
 	return (
 		<div
 			style={{
@@ -72,7 +73,20 @@ const Login = () => {
 				flexDirection: "column",
 			}}
 		>
-			<TextField label="Room Code" name="room" onChange={func} />
+			<TextField
+				label="Room Code"
+				name="room"
+				onChange={func}
+				value={state.room}
+			/>
+			<Button
+				color="success"
+				variant="contained"
+				style={{ marginTop: "10px" }}
+				onClick={generateRoom}
+			>
+				{`Generate & Copy Room Code`}
+			</Button>
 			<TextField
 				label="Name"
 				name="name"

@@ -79,7 +79,8 @@ textarea::-webkit-scrollbar {
 .boxes {
 	height: 100%;
 	width: 30vw;
-	background-color: #afcae6;
+	/* background-color: #afcae6; */
+	/* background-image: linear-gradient(45deg, white, rgba(66, 184, 252, 0.753)); */
 	border-radius: 0.5rem;
 }
 
@@ -145,7 +146,7 @@ textarea::-webkit-scrollbar {
 }
 
 .hover_on_board_element {
-	background-color: rgba(0, 0, 255, 0.253);
+	background-color: rgba(124, 247, 237, 0.431);
 }
 #chat {
 	text-align: center;
@@ -327,10 +328,10 @@ textarea {
 	margin: 1rem;
 	padding: 5px;
 	/* min-height: 75%; */
-	background-color: rgba(255, 255, 255, 0.644);
+	background-color: rgba(255, 255, 255, 0.048);
 	grid-area: scrn;
 	overflow: auto;
-	border: 13px solid rgba(255, 255, 255, 0.582);
+	border: 13px solid rgba(255, 255, 255, 0.103);
 	/* border-right: 7px solid white; */
 }
 
@@ -369,7 +370,7 @@ textarea {
 .result {
 	/* background-color: #9AECDB; */
 	/* padding: 10px 10px; */
-	box-shadow: 3px 3px 4px#022b538f;
+	box-shadow: 0px 0px 5px 7px rgba(255, 255, 255, 0.226);
 	height: 480px;
 }
 .ownProfile {
@@ -382,7 +383,7 @@ textarea {
 	justify-content: center;
 }
 .bothPlayer {
-	background-color: #6a89cc;
+	background-color: #6a89cc4d;
 	margin: 10px 30px;
 	padding: 5px 10px;
 	display: flex;
@@ -391,9 +392,14 @@ textarea {
 	align-items: center;
 	line-height: 0.1rem;
 	border-radius: 5px;
-	box-shadow: 2px 2px 3px#012b538f;
+	box-shadow: inset 0 0px 6px 5px#ffffff46;
 	height: 250px;
 	justify-content: center;
+}
+#msg-box {
+	background-color: rgba(128, 128, 128, 0.219);
+	box-shadow: 0px 2px 5px 3px rgba(255, 255, 255, 0.226);
+	color: white;
 }
 .room {
 	color: #fff;
@@ -404,7 +410,7 @@ textarea {
 	font-size: 1.2rem;
 	font-weight: 650;
 	margin-top: 5px;
-	color: black;
+	color: rgb(0, 255, 213);
 }
 .players {
 	display: flex;
@@ -475,6 +481,7 @@ textarea {
 }
 #chat {
 	max-height: 480px;
+	box-shadow: 0px 0px 5px 7px rgba(255, 255, 255, 0.226);
 }
 @media (max-width: 1146px) {
 	.result {
@@ -545,6 +552,9 @@ textarea {
 	}
 	.low_div {
 		padding: 2px 2px;
+	}
+	.total_bg {
+		height: 78vh;
 	}
 }
 @media screen and (max-width: 500px) {

@@ -8,7 +8,7 @@ function App() {
 	return (
 		<div className="App">
 			{/* <div className="bg_animation"></div> */}
-			<div className="backgroundEffect"></div>
+			{/* <div className="backgroundEffect"></div> */}
 			<BrowserRouter>
 				<Routes>
 					<Route exact path="/" element={<Game />} />
