@@ -554,7 +554,7 @@ textarea {
 		padding: 2px 2px;
 	}
 	.total_bg {
-		height: 78vh;
+		height:1000px;
 	}
 }
 @media screen and (max-width: 500px) {
