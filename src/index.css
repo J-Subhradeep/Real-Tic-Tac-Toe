@@ -134,51 +134,7 @@
 		background-color: #7d09dbe7;
 	}
 }
-/* .fullres {
-	display: flex;
-	
-} */
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-body {
 
-  
-	background-color: rgba(0, 0, 0, 0.959);
-}
-.bg_animation {
-	background-image: url(./giphy.gif);
-	position: absolute;
-	height: 150vh;
-	width: 100vw;
-	z-index: 10;
-}
-.bg {
-	position: absolute;
-	pointer-events: none;
-	font-family: "Merriweather Sans", sans-serif;
-	color: rgb(0, 0, 0);
-	animation: animate 5s linear infinite;
-	font-size: 6rem;
-}
-@keyframes animate {
-	0% {
-		opacity: 0;
-		transform: scale(0) translateY(0) rotate(0deg);
-	}
-	10% {
-		opacity: 1;
-	}
-	90% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-		transform: scale(1) translateY(-500%) rotate(360deg);
-	}
-} */
 .backgroundEffect {
 	height: 110vh;
 	width: 100vw;
@@ -208,7 +164,7 @@ body {
 	position: relative;
 	min-width: 700px;
 	height: 700px;
-	margin: -50px;
+	margin: 25px;
 	transform-origin: right;
 	animation: chngColor 5s linear infinite;
 }
@@ -279,10 +235,10 @@ body {
 	animation: animate-reverse 3s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 3) {
-	animation: animate 6s alternate infinite;
+	animation: animate 2s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 4) {
-	animation: animate 7s alternate infinite;
+	animation: animate 10s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 5) {
 	animation: animate-reverse 5s alternate infinite;
