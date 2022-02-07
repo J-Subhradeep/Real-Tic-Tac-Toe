@@ -3,10 +3,19 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setArray } from "./GameSlice";
 import { setChange } from "./BoardSlice";
-import { setAbility } from "./DisableBoardSlice";
+import { setAbility, setTrue } from "./DisableBoardSlice";
 import ClearOutlinedIcon from "@mui/icons-material/ClearOutlined";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
+import clickmusic from "../Sounds/click.wav";
+import { Howl, Howler } from "howler";
 export default function (props) {
+	var sound = new Howl({
+		src: [clickmusic],
+	});
+	// useEffect(() => {
+	// 	sound.play();
+	// 	// Howler.volume(0.05);
+	// }, []);
 	var classesOfBoard = [
 		"posn top left",
 		"posn top vert",
@@ -56,7 +65,9 @@ export default function (props) {
 							})
 						);
 						dispatch(setChange());
-						dispatch(setAbility());
+						dispatch(setTrue());
+						sound.play();
+						sound.volume(6);
 					}
 				}}
 				onMouseEnter={() => {

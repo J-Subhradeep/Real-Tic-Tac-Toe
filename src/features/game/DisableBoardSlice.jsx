@@ -11,9 +11,15 @@ export const AbilitySlice = createSlice({
 		setAbility: (state) => {
 			state.disabled = !state.disabled;
 		},
+		setFalse: (state) => {
+			state.disabled = false;
+		},
+		setTrue: (state) => {
+			state.disabled = true;
+		},
 	},
 });
 
-export const { setAbility } = AbilitySlice.actions;
+export const { setAbility, setFalse, setTrue } = AbilitySlice.actions;
 
 export default AbilitySlice.reducer;
