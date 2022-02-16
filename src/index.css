@@ -50,6 +50,13 @@
 }
 
 @keyframes greetone {
+	10% {
+		transform: scale(0.3);
+		transform: rotate(-180deg);
+	}
+	50% {
+		transform: scale(0.5);
+	}
 	80% {
 		transform: scale(2);
 	}

@@ -67,7 +67,7 @@ export default function (props) {
 						dispatch(setChange());
 						dispatch(setTrue());
 						sound.play();
-						sound.volume(6);
+						sound.volume(4);
 					}
 				}}
 				onMouseEnter={() => {

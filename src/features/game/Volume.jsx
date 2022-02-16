@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 import MuiInput from "@mui/material/Input";
 import VolumeUp from "@mui/icons-material/VolumeUp";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Input = styled(MuiInput)`
 	width: 42px;
@@ -29,37 +31,56 @@ export default function InputSlider() {
 			setValue(100);
 		}
 	};
+	const [wid, setWid] = useState(275);
+	useEffect(() => {
+		window.onresize = () => {
+			console.log(window.innerWidth);
+			if (window.innerWidth < 545) {
+				setWid(200);
+			}
+			if (window.innerWidth < 410) {
+				setWid(175);
+			}
+		};
+	}, []);
 
 	return (
-		<Box sx={{ width: 150 }}>
-			<Grid container spacing={2} alignItems="center">
-				<Grid item>
-					<VolumeUp />
+		<>
+			<Box
+				sx={{ width: wid }}
+				backgroundColor="white"
+				style={{ padding: "10px" }}
+				borderRadius={2}
+			>
+				<Grid container spacing={2} alignItems="center">
+					<Grid item>
+						<VolumeUp />
+					</Grid>
+					<Grid item xs>
+						<Slider
+							color="error"
+							value={typeof value === "number" ? value : 0}
+							onChange={handleSliderChange}
+							aria-labelledby="input-slider"
+						/>
+					</Grid>
+					<Grid item>
+						<Input
+							value={value}
+							size="small"
+							onChange={handleInputChange}
+							onBlur={handleBlur}
+							inputProps={{
+								step: 10,
+								min: 0,
+								max: 100,
+								type: "number",
+								"aria-labelledby": "input-slider",
+							}}
+						/>
+					</Grid>
 				</Grid>
-				<Grid item xs>
-					<Slider
-						color="error"
-						value={typeof value === "number" ? value : 0}
-						onChange={handleSliderChange}
-						aria-labelledby="input-slider"
-					/>
-				</Grid>
-				<Grid item>
-					<Input
-						value={value}
-						size="small"
-						onChange={handleInputChange}
-						onBlur={handleBlur}
-						inputProps={{
-							step: 10,
-							min: 0,
-							max: 100,
-							type: "number",
-							"aria-labelledby": "input-slider",
-						}}
-					/>
-				</Grid>
-			</Grid>
-		</Box>
+			</Box>
+		</>
 	);
 }

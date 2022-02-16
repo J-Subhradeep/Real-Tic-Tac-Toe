@@ -6,7 +6,7 @@ import Volume from "./Volume";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { useSelector, useDispatch } from "react-redux";
 import { setOpponent } from "./ResultSlice";
-
+import LogoutIcon from "@mui/icons-material/Logout";
 const Result = () => {
 	var username = localStorage.getItem("name");
 	var room = localStorage.getItem("room");
@@ -45,15 +45,19 @@ const Result = () => {
 	return (
 		<>
 			<div className="ownProfile">
-				<Fab>
-					<AccountCircleIcon
+				<Fab
+					onClick={() => {
+						window.location.reload();
+					}}
+				>
+					<LogoutIcon
 						fontSize="large"
 						style={{
 							color: "#3B3B98",
 						}}
 					/>
 				</Fab>
-				<h2>You</h2>
+				<h2 style={{ color: "white" }}>Exit</h2>
 			</div>
 			<div className="volumeBar">
 				<Volume />
@@ -77,7 +81,7 @@ const Result = () => {
 								<HelpOutlineIcon fontSize="large" color="error" />
 							)}
 						</Fab>
-						<p>{oppo.toUpperCase()}</p>
+						<p>{oppo ? oppo.toUpperCase() : ""}</p>
 					</div>
 				</div>
 			</div>
