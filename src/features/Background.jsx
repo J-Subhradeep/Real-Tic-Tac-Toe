@@ -13,7 +13,7 @@ const Background = () => {
 	function some() {
 		console.log(backgroundmusic);
 
-		Howler.volume(props.value);
+		Howler.volume(0.5);
 	}
 	function stop() {
 		sound.stop();
