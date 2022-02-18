@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
 .fullres.fail {
 	display: flex;
 	justify-content: center;
@@ -29,6 +30,7 @@
 .fullres.fail div,
 .fullres.pass div,
 .fullres.drawmatch div {
+	/* font-family: 'Shizuru', cursive; */
 	position: absolute;
 	top: 43%;
 	left: 50%;
@@ -43,6 +45,7 @@
 .fullres.drawmatch .result_title {
 	color: white;
 	text-align: center;
+	margin-top: 25px;
 	font-size: 5rem;
 	margin-bottom: 1rem;
 	transform: scale(0);
@@ -70,6 +73,7 @@
 .fullres.drawmatch .result_msg {
 	color: white;
 	text-align: center;
+	margin-top: 60px;
 	font-size: 2rem;
 	transform: scale(0);
 	animation: greettwo 3s linear forwards;
@@ -173,7 +177,8 @@
 	height: 700px;
 	margin: 25px;
 	transform-origin: right;
-	animation: chngColor 5s linear infinite;
+	/* animation: chngColor 5s linear infinite; */
+	animation: chngColor 5s cubic-bezier(0.99, 1.01, 0.98, 0.81) infinite;
 }
 @keyframes chngColor {
 	0% {
@@ -200,55 +205,55 @@
 	position: absolute;
 	top: 50%;
 	left: -10px;
-	width: 15px;
-	height: 15px;
+	width: 100px;
+	height: 100px;
 	background: #f00;
 	border-radius: 50%;
 }
 .glowing .glow1:nth-child(3n + 1):before {
-	background: rgba(134, 255, 0, 1);
-	box-shadow: 0 0 20px rgba(134, 255, 0, 1), 0 0 40px rgba(134, 255, 0, 1),
-		0 0 60px rgba(134, 255, 0, 1), 0 0 80px rgba(134, 255, 0, 1),
-		0 0 100px rgba(134, 255, 0, 0.1);
+	background: rgba(134, 255, 0, 0.26);
+	box-shadow: 0 0 120px rgba(134, 255, 0, 0.56), 0 0 140px rgba(134, 255, 0, 0.261),
+		0 0 160px rgba(134, 255, 0, 0.26), 0 0 180px rgba(134, 255, 0, 0.26),
+		0 0 100px rgba(134, 255, 0, 0.26);
 }
 .glowing .glow1:nth-child(3n + 2):before {
-	background: rgba(255, 214, 0, 1);
-	box-shadow: 0 0 20px rgba(255, 214, 0, 1), 0 0 40px rgba(255, 214, 0, 1),
-		0 0 60px rgba(255, 214, 0, 1), 0 0 80px rgba(255, 214, 0, 1),
+	background: rgba(255, 214, 0, 0.26);
+	box-shadow: 0 0 150px rgba(255, 214, 0, 0.36), 0 0 180px rgba(255, 214, 0, 0.36),
+		0 0 160px rgba(255, 214, 0, 0.36), 0 0 180px rgba(255, 214, 0, 0.36),
 		0 0 100px rgba(255, 214, 0, 0.1);
 }
 .glowing .glow1:nth-child(3n + 3):before {
-	background: rgba(0, 226, 255, 1);
-	box-shadow: 0 0 20px rgba(0, 226, 255, 1), 0 0 40px rgba(0, 226, 255, 1),
-		0 0 60px rgba(0, 226, 255, 1), 0 0 80px rgba(0, 226, 255, 1),
+	background: rgba(0, 226, 255, 0.26);
+	box-shadow: 0 0 120px rgba(0, 226, 255, 0.15), 0 0 140px rgba(0, 226, 255, 0.15),
+		0 0 160px rgba(0, 226, 255, 0.15), 0 0 180px rgba(0, 226, 255, 0.15),
 		0 0 100px rgba(0, 226, 255, 0.1);
 }
 .glowing .glow1:nth-child(3n + 4):before {
-	background: rgb(21, 255, 0);
-	box-shadow: 0 0 20px rgb(5, 117, 42), 0 0 40px rgb(162, 255, 11),
-		0 0 60px rgb(0, 255, 85), 0 0 80px rgb(21, 255, 0),
+	background: rgb(21, 255, 0,0.26);
+	box-shadow: 0 0 120px rgb(5, 117, 42,0.43), 0 0 140px rgb(162, 255, 11,0.43),
+		0 0 160px rgb(0, 255, 85,0.43), 0 0 180px rgb(21, 255, 0,0.43),
 		0 0 100px rgba(89, 255, 23, 0.315);
 }
 .glowing .glow1:nth-child(3n + 5):before {
-	background: rgb(253, 99, 233);
-	box-shadow: 0 0 20px rgb(198, 113, 248), 0 0 40px rgb(198, 113, 248),
-		0 0 60px rgb(198, 113, 248), 0 0 80px rgb(198, 113, 248),
+	background: rgb(253, 99, 233,0.26);
+	box-shadow: 0 0 120px rgb(198, 113, 248,0.23), 0 0 140px rgb(198, 113, 248,0.23),
+		0 0 160px rgb(198, 113, 248,0.23), 0 0 180px rgb(198, 113, 248,0.23),
 		0 0 100px rgba(198, 113, 248, 0.1);
 }
 .glowing .glow1:nth-child(3n + 1) {
-	animation: animate 8s alternate infinite;
+	animation: animate 20s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 2) {
-	animation: animate-reverse 3s alternate infinite;
+	animation: animate-reverse 8s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 3) {
-	animation: animate 2s alternate infinite;
+	animation: animate 15s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 4) {
-	animation: animate 10s alternate infinite;
+	animation: animate 33s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 5) {
-	animation: animate-reverse 5s alternate infinite;
+	animation: animate-reverse 3s alternate infinite;
 }
 @keyframes animate {
 	0% {
