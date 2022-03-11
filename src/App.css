@@ -256,7 +256,7 @@ textarea {
 	background-color: #4b7bec;
 	margin-bottom: 1rem;
 	border-bottom: 7px white;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .my-msg div {
@@ -292,7 +292,7 @@ textarea {
 	background-color: #0ca55d;
 	margin-bottom: 1rem;
 	border-bottom: 7px white;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .oth-msg div {
@@ -483,7 +483,7 @@ textarea {
 	max-height: 480px;
 	box-shadow: 0px 0px 5px 7px rgba(255, 255, 255, 0.226);
 }
-@media (max-width: 1146px) {
+@media (max-width: 1166px) {
 	.result {
 		display: none;
 	}
@@ -554,7 +554,7 @@ textarea {
 		padding: 2px 2px;
 	}
 	.total_bg {
-		height:1000px;
+		height: 1000px;
 	}
 }
 @media screen and (max-width: 500px) {

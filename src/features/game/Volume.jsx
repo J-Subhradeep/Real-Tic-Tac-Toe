@@ -8,16 +8,20 @@ import MuiInput from "@mui/material/Input";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { setVolume } from "./VolumeSlice";
 const Input = styled(MuiInput)`
 	width: 42px;
 `;
 
 export default function InputSlider() {
 	const [value, setValue] = React.useState(30);
-
+	const val = useSelector((state) => state.volume.value);
+	var dispatch = useDispatch();
 	const handleSliderChange = (event, newValue) => {
 		setValue(newValue);
+		dispatch(setVolume(newValue));
+		console.log(newValue);
 	};
 
 	const handleInputChange = (event) => {

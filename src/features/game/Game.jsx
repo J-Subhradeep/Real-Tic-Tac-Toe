@@ -4,7 +4,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import check from "./Winner";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-
+import Fab from "@mui/material/Fab";
+import ReplayIcon from "@mui/icons-material/Replay";
 import music from "./music.mp3";
 import { setAbility, setFalse, setTrue } from "./DisableBoardSlice";
 import BoardElement from "./BoardElement";
@@ -108,12 +109,21 @@ const Game = () => {
 	];
 	return (
 		<>
-			<div className={result.classs}>
-				<div>
-					<span className="result_title">{result.title}</span>
-					<span className="result_msg">{result.msg}</span>
+			{!win ? (
+				<div className={result.classs}>
+					<div>
+						<span className="result_title">{result.title}</span>
+						<span className="result_msg">{result.msg}</span>
+						<span>
+							<Fab onClick={() => window.location.reload()}>
+								<ReplayIcon />
+							</Fab>
+						</span>
+					</div>
 				</div>
-			</div>
+			) : (
+				<></>
+			)}
 			{win ? (
 				<>
 					<div class="total_bg">

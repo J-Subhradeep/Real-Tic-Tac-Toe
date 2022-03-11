@@ -5,6 +5,7 @@ import GameSlicer from "../features/game/GameSlice";
 import ResultSlicer from "../features/game/ResultSlice";
 import BoardSlicer from "../features/game/BoardSlice";
 import AbilitySlicer from "../features/game/DisableBoardSlice";
+import VolumeSlicer from "../features/game/VolumeSlice";
 export const store = configureStore({
 	reducer: {
 		// counter: counterReducer,
@@ -12,5 +13,6 @@ export const store = configureStore({
 		opponent: ResultSlicer,
 		change: BoardSlicer,
 		ability: AbilitySlicer,
+		volume: VolumeSlicer,
 	},
 });

@@ -174,6 +174,7 @@
 	margin: 25px;
 	transform-origin: right;
 	animation: chngColor 5s linear infinite;
+	opacity: 0.5;
 }
 @keyframes chngColor {
 	0% {
@@ -207,26 +208,26 @@
 }
 .glowing .glow1:nth-child(3n + 1):before {
 	background: rgba(134, 255, 0, 1);
-	box-shadow: 0 0 20px rgba(134, 255, 0, 1), 0 0 40px rgba(134, 255, 0, 1),
-		0 0 60px rgba(134, 255, 0, 1), 0 0 80px rgba(134, 255, 0, 1),
+	box-shadow: 0 0 20px rgba(134, 255, 0, 1), 0 0 50px rgba(134, 255, 0, 1),
+		0 0 80px rgba(134, 255, 0, 1), 0 0 90px rgba(134, 255, 0, 1),
 		0 0 100px rgba(134, 255, 0, 0.1);
 }
 .glowing .glow1:nth-child(3n + 2):before {
 	background: rgba(255, 214, 0, 1);
-	box-shadow: 0 0 20px rgba(255, 214, 0, 1), 0 0 40px rgba(255, 214, 0, 1),
-		0 0 60px rgba(255, 214, 0, 1), 0 0 80px rgba(255, 214, 0, 1),
+	box-shadow: 0 0 20px rgba(255, 214, 0, 1), 0 0 50px rgba(255, 214, 0, 1),
+		0 0 80px rgba(255, 214, 0, 1), 0 0 90px rgba(255, 214, 0, 1),
 		0 0 100px rgba(255, 214, 0, 0.1);
 }
 .glowing .glow1:nth-child(3n + 3):before {
 	background: rgba(0, 226, 255, 1);
-	box-shadow: 0 0 20px rgba(0, 226, 255, 1), 0 0 40px rgba(0, 226, 255, 1),
-		0 0 60px rgba(0, 226, 255, 1), 0 0 80px rgba(0, 226, 255, 1),
+	box-shadow: 0 0 20px rgba(0, 226, 255, 1), 0 0 50px rgba(0, 226, 255, 1),
+		0 0 80px rgba(0, 226, 255, 1), 0 0 90px rgba(0, 226, 255, 1),
 		0 0 100px rgba(0, 226, 255, 0.1);
 }
 .glowing .glow1:nth-child(3n + 4):before {
 	background: rgb(21, 255, 0);
-	box-shadow: 0 0 20px rgb(5, 117, 42), 0 0 40px rgb(162, 255, 11),
-		0 0 60px rgb(0, 255, 85), 0 0 80px rgb(21, 255, 0),
+	box-shadow: 0 0 20px rgb(5, 117, 42), 0 0 50px rgb(162, 255, 11),
+		0 0 80px rgb(0, 255, 85), 0 0 90px rgb(21, 255, 0),
 		0 0 100px rgba(89, 255, 23, 0.315);
 }
 .glowing .glow1:nth-child(3n + 5):before {
@@ -236,19 +237,19 @@
 		0 0 100px rgba(198, 113, 248, 0.1);
 }
 .glowing .glow1:nth-child(3n + 1) {
-	animation: animate 8s alternate infinite;
+	animation: animate 20s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 2) {
-	animation: animate-reverse 3s alternate infinite;
+	animation: animate-reverse 12s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 3) {
-	animation: animate 2s alternate infinite;
+	animation: animate 45s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 4) {
-	animation: animate 10s alternate infinite;
+	animation: animate 14s alternate infinite;
 }
 .glowing .glow1:nth-child(3n + 5) {
-	animation: animate-reverse 5s alternate infinite;
+	animation: animate-reverse 6s alternate infinite;
 }
 @keyframes animate {
 	0% {
