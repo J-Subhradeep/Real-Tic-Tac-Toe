@@ -41,6 +41,8 @@
 .fullres.fail .result_title,
 .fullres.pass .result_title,
 .fullres.drawmatch .result_title {
+	/* margin-bottom: 30px; */
+	padding-bottom: 40px;
 	color: white;
 	text-align: center;
 	font-size: 4rem;
@@ -69,7 +71,7 @@
 .fullres.pass .result_msg,
 .fullres.drawmatch .result_msg {
 	color: white;
-
+	padding-bottom: 40px;
 	text-align: center;
 	font-size: 1rem;
 	transform: scale(0);

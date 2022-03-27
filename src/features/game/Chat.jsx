@@ -39,8 +39,8 @@ const Chat = (props) => {
             scrn.classList.remove("notscroll");
 
             if (scrn.clientHeight + scrn.scrollTop >= scrn.scrollHeight - 10) {
-              console.log("scrolled");
               setDownarrow(false);
+              console.log("scrolled");
             } else {
               setDownarrow(true);
             }
@@ -96,14 +96,17 @@ const Chat = (props) => {
               if (!oppo) {
                 return;
               }
-              sendMessage(
-                JSON.stringify({
-                  msg: value,
-                  msg_sym: localStorage.getItem("sym"),
-                  label: localStorage.getItem("name"),
-                  time: getDate(),
-                })
-              );
+              if (value !== "") {
+                sendMessage(
+                  JSON.stringify({
+                    msg: value,
+                    msg_sym: localStorage.getItem("sym"),
+                    label: localStorage.getItem("name"),
+                    time: getDate(),
+                  })
+                );
+              }
+              setValue("");
             }}
           >
             <SendIcon />
