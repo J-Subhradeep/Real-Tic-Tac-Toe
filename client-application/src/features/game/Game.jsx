@@ -35,7 +35,7 @@ const Game = () => {
 	});
 	const [win, setWin] = useState(true);
 	const [socketUrl, setSocketUrl] = useState(
-		"ws://api-tictactoe-by-sp.online/ws/board/" + room + "_board" + "/"
+		"wss://api-tictactoe-by-sp.online/ws/board/" + room + "_board" + "/"
 	);
 	const [messageHistory, setMessageHistory] = useState([]);
 	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
