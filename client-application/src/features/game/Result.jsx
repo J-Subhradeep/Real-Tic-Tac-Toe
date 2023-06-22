@@ -11,7 +11,7 @@ const Result = () => {
 	var username = localStorage.getItem("name");
 	var room = localStorage.getItem("room");
 	const [socketUrl, setSocketUrl] = useState(
-		"wss://api-tictactoe-by-sp.online/ws/seconduser/" + room + "/" + username + "/"
+		"ws://api-tictactoe-by-sp.online:8001/ws/seconduser/" + room + "/" + username + "/"
 	);
 
 	const [icon, setIcon] = useState(false);

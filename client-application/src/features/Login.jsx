@@ -23,7 +23,7 @@ const Login = () => {
   async function makeRequest(data) {
     try {
       const result = await $.ajax({
-        url: "https://api-tictactoe-by-sp.online/",
+        url: "http://api-tictactoe-by-sp.online:8001/",
         data: data,
         method: "POST",
       });
@@ -52,7 +52,7 @@ const Login = () => {
   }
   const generateRoom = async () => {
     const result = await $.ajax({
-      url: "https://api-tictactoe-by-sp.online/unique/",
+      url: "http://api-tictactoe-by-sp.online:8001/unique/",
       method: "GET",
     });
 
