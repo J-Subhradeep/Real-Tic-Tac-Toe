@@ -12,7 +12,7 @@ const Chat = (props) => {
   const [downarrow, setDownarrow] = useState(false);
 
   const [socketUrl, setSocketUrl] = useState(
-    "ws://api-tictactoe-by-sp.online:8001/ws/chat/" + room + "_chat" + "/" + symbols + "/"
+    "ws://play-real-tictactoe.cloud/api/ws/chat/" + room + "_chat" + "/" + symbols + "/"
   );
   const [messageHistory, setMessageHistory] = useState([]);
   const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);

@@ -17,6 +17,7 @@ function App() {
 				<Routes>
 					<Route exact path="/" element={<Game />} />
 					<Route exact path="/login" element={<Login />} />
+					
 				</Routes>
 			</BrowserRouter>
 		</div>
