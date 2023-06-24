@@ -19,7 +19,7 @@ const Result = () => {
 	// const [opponent, setOpponent] = useState(oppo);
 	const dispatch = useDispatch();
 	const [messageHistory, setMessageHistory] = useState([]);
-	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl,{shouldReconnect:(CloseEvent)=>true, reconnectAttempts:10, reconnectInterval:2000});
 	useEffect(() => {
 		if (lastMessage !== null) {
 			setMessageHistory((prev) => prev.concat(lastMessage));

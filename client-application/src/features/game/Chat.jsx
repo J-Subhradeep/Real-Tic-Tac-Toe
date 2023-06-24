@@ -15,7 +15,7 @@ const Chat = (props) => {
     "ws://play-real-tictactoe.cloud/api/ws/chat/" + room + "_chat" + "/" + symbols + "/"
   );
   const [messageHistory, setMessageHistory] = useState([]);
-  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl,{shouldReconnect:(CloseEvent)=>true, reconnectAttempts:10, reconnectInterval:2000});
   const [message, setMessage] = useState([]);
   useEffect(() => {
     if (lastMessage !== null) {

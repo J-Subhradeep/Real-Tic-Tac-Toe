@@ -38,7 +38,7 @@ const Game = () => {
 		"ws://play-real-tictactoe.cloud/api/ws/board/" + room + "_board" + "/"
 	);
 	const [messageHistory, setMessageHistory] = useState([]);
-	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl,{shouldReconnect:(CloseEvent)=>true, reconnectAttempts:10, reconnectInterval:2000});
 	const dispatch = useDispatch();
 	useEffect(() => {
 		if (lastMessage !== null) {
