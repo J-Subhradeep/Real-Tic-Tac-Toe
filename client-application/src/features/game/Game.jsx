@@ -35,7 +35,7 @@ const Game = () => {
 	});
 	const [win, setWin] = useState(true);
 	const [socketUrl, setSocketUrl] = useState(
-		"ws://api.play-real-tictactoe.cloud/api/ws/board/" + room + "_board" + "/"
+		"wss://api.play-real-tictactoe.cloud/api/ws/board/" + room + "_board" + "/"
 	);
 	const [messageHistory, setMessageHistory] = useState([]);
 	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl,{shouldReconnect:(CloseEvent)=>true, reconnectAttempts:10, reconnectInterval:2000});
